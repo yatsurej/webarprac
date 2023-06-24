@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebAR.rocks Object Detection</title>
+  <script src="https://cdn.jsdelivr.net/npm/webarrocks@1.4.0/dist/webarrocks.bundle.min.js"></script>
+  <script src="script.js"></script>
+  <style>
+    /* Add your CSS styles here */
+    /* You can style the video element and other UI elements as needed */
+  </style>
+</head>
+<body>
+  <h1>WebAR.rocks Object Detection Example</h1>
+
+  <!-- Video element to display the camera feed -->
+  <video id="cameraFeed" autoplay></video>
+
+  <!-- Canvas element to render augmented reality content -->
+  <canvas id="arCanvas"></canvas>
+
+  <!-- Add your other HTML elements and UI components here -->
+
+  <!-- Example: Button to initiate object scanning -->
+  <button onclick="scanObject()">Scan Object</button>
+
+  <!-- Example: Status indicator -->
+  <div id="statusIndicator"></div>
+
+  <!-- Example: Display detected object information -->
+  <div id="objectInfo"></div>
+
+  <!-- Example: Augmented reality content -->
+  <div id="arContent">
+    <!-- Add your augmented reality content here -->
+  </div>
+
+  <!-- Example: Text input for augmented content -->
+  <form onsubmit="submitContent(event)">
+    <input type="text" id="contentInput" placeholder="Enter augmented content">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    // Your additional JavaScript code can be placed inline here if needed
+
+    // Example: Accessing the video element and canvas element
+    var videoElement = document.getElementById('cameraFeed');
+    var canvasElement = document.getElementById('arCanvas');
+
+    // Example: Customizing the styles of the video and canvas elements
+    videoElement.style.width = '100%'; // Adjust the size as needed
+    canvasElement.style.position = 'absolute';
+    canvasElement.style.top = '0';
+    canvasElement.style.left = '0';
+
+    // Example: Function to display the status indicator
+    function showStatus(status) {
+      var statusIndicator = document.getElementById('statusIndicator');
+      statusIndicator.innerText = status;
+    }
+
+    // Example: Function to display the detected object information
+    function showObjectInfo(object) {
+      var objectInfo = document.getElementById('objectInfo');
+      objectInfo.innerText = 'Detected Object: ' + object;
+    }
+
+    // Example: Function to handle the submission of augmented content
+    function submitContent(event) {
+      event.preventDefault();
+      var contentInput = document.getElementById('contentInput');
+      var augmentedContent = contentInput.value;
+
+      // Use the augmentedContent variable to display the augmented content
+      // You can update the arContent div or use any other method for rendering the content
+
+      contentInput.value = ''; // Clear the input field after submission
+    }
+  </script>
+</body>
+</html>
